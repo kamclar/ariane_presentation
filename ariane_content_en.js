@@ -57,17 +57,18 @@ window.ARIANE_CONTENTS.en = {
         },
         {
           type: "callout",
-          heading: "The main difficulty",
-          text: "The evidence needed for classification is distributed across databases, prediction tools and scientific publications. Some criteria can be evaluated computationally, while others still require manual expert review."
+          heading: "Why classification is chalenging",
+          text: "Variant classification can be time-consuming and requires substantial expert knowledge. Relevant evidence is distributed across databases, prediction tools and scientific publications, and individual criteria must be applied according to complex, often gene-specific rules. Some criteria can be evaluated computationally, while others still require manual expert review."
         }
       ],
-      notes: [
-        "Základní problém: genetický test najde variantu, ale samotný nález ještě neříká, zda je klinicky významná.",
-        "Co je kritérium: předem definovaný typ důkazu, který posouvá klasifikaci směrem k benigní nebo patogenní variantě.",
-        "Lze zmínit VUS, tedy variantu s nedostatečnými nebo rozpornými důkazy. Není nutné zacházet do kombinatoriky ACMG. VUS jsou momentílně velký problém, ať už z důvodu chybné klasifikace, nebo nedostatečných dat. Tady ARIANE může pomoct v obou případech a zmenšit množství VUS.",
-        "ENIGMA - mezinárodní expertní panelu, který pravidla zpřesnil pro BRCA1 a BRCA2.",
-        "Poslední box je přechod na další slide: část evidence lze zpracovat automaticky a část stále vyžaduje ruční práci."
-      ]
+notes: [
+  "Základní problém: genetický test najde variantu, ale samotný nález ještě neříká, zda je klinicky významná.",
+  "Co je kritérium: předem definovaný typ důkazu, který posouvá klasifikaci směrem k benigní nebo patogenní variantě.",
+  "Problém je, že samotná kritéria mohou být velmi složitá. Je potřeba pracovat s tabulkami důkazů, různými typy skóre a nakonec všechno správně spojit pomocí rozhodovacích pravidel. Ne všechny laboratoře mají dostatek času nebo potřebnou odbornost na to, aby klasifikaci prováděly v takové hloubce, jak by bylo ideální. V praxi se pak někdy sklouzne k přístupu typu: podívám se, jak tuto variantu hodnotili ostatní v ClinVaru. Tím ale může vznikat kruhové hodnocení, kdy se jednotlivé záznamy opírají jeden o druhý místo o nezávislé vyhodnocení důkazů.",
+  "Lze zmínit VUS, tedy variantu s nedostatečnými nebo rozpornými důkazy. Není nutné zacházet do kombinatoriky ACMG. VUS jsou v současnosti velký problém, ať už kvůli nedostatku dat, nebo kvůli neúplnému či nepřesnému vyhodnocení dostupných důkazů. ARIANE může pomoci v obou případech tím, že zpřístupní konzistentnější a důkladnější vyhodnocení a potenciálně sníží počet variant, které zůstávají klasifikované jako VUS.",
+  "ENIGMA je mezinárodní expertní panel, který pravidla zpřesnil pro BRCA1 a BRCA2.",
+  "Poslední box je přechod na další slide: část evidence lze zpracovat automaticky a část stále vyžaduje ruční odborné posouzení."
+]
     },
 
     {
