@@ -8,8 +8,6 @@
   ];
 
   const IDENTITY = {
-    presenterName: "Kamila Clarová",
-    presenterGroup: "Skupina Jiřího Vondráška",
     logoSrc: "images/uochb-iocb-prague-logo.png",
     logoAlt: "ÚOCHB IOCB Prague"
   };
@@ -53,12 +51,16 @@
     const mark = el("div", "deck-mark");
 
     const img = document.createElement("img");
-    img.src = IDENTITY.logoSrc;
-    img.alt = IDENTITY.logoAlt;
+    img.src = content.deck.logoSrc || IDENTITY.logoSrc;
+    img.alt = content.deck.logoAlt || IDENTITY.logoAlt;
     mark.appendChild(img);
 
-    mark.appendChild(el("div", "presenter-name", IDENTITY.presenterName));
-    mark.appendChild(el("div", "presenter-group", IDENTITY.presenterGroup));
+    if (content.deck.authorName) {
+      mark.appendChild(el("div", "author-name", content.deck.authorName));
+    }
+    if (content.deck.authorGroup) {
+      mark.appendChild(el("div", "author-group", content.deck.authorGroup));
+    }
 
     return mark;
   }
@@ -207,8 +209,8 @@
 
     const bar = el("div", "bar");
     const who = el("div", "who");
-    const presenterParts = [IDENTITY.presenterName, IDENTITY.presenterGroup].filter(Boolean).join(" · ");
-    const byline = presenterParts ? ` <span class="bar-author">${presenterParts}</span>` : "";
+    const authorParts = [content.deck.authorName, content.deck.authorGroup].filter(Boolean).join(" · ");
+    const byline = authorParts ? ` <span class="bar-author">${authorParts}</span>` : "";
     who.innerHTML = `<b>${content.deck.headerTitle}</b> &nbsp;&middot;&nbsp; ${content.deck.headerSubtitle}${byline}`;
 
     const controls = el("div", "controls");

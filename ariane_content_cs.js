@@ -5,7 +5,9 @@ window.ARIANE_CONTENTS.cs = {
     headerTitle: "ARIANE",
     headerSubtitle: "automatizovaná interpretace genetických variant",
     presenterName: "Kamila Clarová",
+    authorName: "Kamila Clarová",
     presenterGroup: "Skupina Jiřího Vondráška",
+    authorGroup: "Skupina Jiřího Vondráška",
     institution: "ÚOCHB AV ČR",
     logoSrc: "images/uochb-iocb-prague-logo.png",
     logoAlt: "IOCB Prague / ÚOCHB AV ČR",
@@ -205,6 +207,48 @@ window.ARIANE_CONTENTS.cs = {
         "Zdůraznit dohledatelnost: každý vytěžený údaj má zůstat propojený s původním zdrojem a má být předložen expertovi k posouzení.",
         "BRCA1 a BRCA2 jsou znovu vhodný první případ, protože existuje dostatek ručně zkurátorované literatury, proti které lze systém vyvíjet a hodnotit.",
         "Dlouhodobě má jít o obecný rámec, který lze rozšířit na další geny podle dostupnosti kvalitních genově specifických pravidel."
+      ]
+    },
+
+    {
+      id: "conclusion",
+      kicker: "Snímek 4",
+      title: "Směrem k systematičtější interpretaci variant",
+      layout: "standard",
+      left: [
+        {
+          type: "callout",
+          heading: "Současný problém",
+          text: "Klasifikace variant je složitá, časově náročná a vyžaduje značnou odbornou znalost. Dostupné důkazy a genově specifická pravidla proto nejsou v rutinní praxi vždy vyhodnocovány konzistentně."
+        },
+        {
+          type: "callout",
+          heading: "ARIANE v laboratorní praxi",
+          text: "ARIANE je navržena jako praktický nástroj pro laboratoře provádějící klasifikaci genetických variant. Při hodnocení konkrétní varianty automaticky vyhodnocuje použitelná kritéria, dokumentuje podkladovou evidenci a provádí uživatele klasifikačním procesem. Vývoj probíhá ve spolupráci s členy ENIGMA Janou Soukupovou a Zdeňkem Kleiblem, a je tak úzce propojen s expertní komunitou zabývající se interpretací variant BRCA1/2."
+        }
+      ],
+      right: [
+        {
+          type: "callout",
+          heading: "Další krok ve vývoji",
+          text: "Rozšířit tento rámec na důkazy obsažené ve vědecké literatuře, přičemž expertní revize zůstává nedílnou součástí interpretačního procesu."
+        },
+        {
+          type: "keyValues",
+          heading: "Ukázka",
+          items: [
+            {
+              key: "Video ukázka",
+              value: "ARIANE - klasifikace variant BRCA1/2",
+              href: "ARIANE%20-%20BRCA1_2%20Variant%20Classification.mp4"
+            }
+          ]
+        }
+      ],
+      notes: [
+        "Závěrečný snímek shrnuje prezentaci bez reklamních formulací: problém, praktické využití ARIANE a další vývojový krok.",
+        "U druhého bodu zdůraznit, že ARIANE je zamýšlená jako praktický nástroj přímo pro laboratoře, ne pouze jako technický prototyp.",
+        "Spolupráce s Janou Soukupovou a Zdeňkem Kleiblem je důležitá, protože oba jsou napojeni na ENIGMA komunitu a vývoj tak probíhá v kontaktu s expertní praxí."
       ]
     }
   ]

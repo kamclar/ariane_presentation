@@ -5,7 +5,9 @@ window.ARIANE_CONTENTS.en = {
     headerTitle: "ARIANE",
     headerSubtitle: "automated interpretation of genetic variants",
     presenterName: "Kamila Clarová",
+    authorName: "Kamila Clarová",
     presenterGroup: "Jiří Vondrášek Group",
+    authorGroup: "Jiří Vondrášek Group",
     institution: "ÚOCHB AV ČR",
     logoSrc: "images/uochb-iocb-prague-logo.png",
     logoAlt: "IOCB Prague / ÚOCHB AV ČR",
@@ -57,7 +59,7 @@ window.ARIANE_CONTENTS.en = {
         },
         {
           type: "callout",
-          heading: "Why classification is chalenging",
+          heading: "Why classification is challenging",
           text: "Variant classification can be time-consuming and requires substantial expert knowledge. Relevant evidence is distributed across databases, prediction tools and scientific publications, and individual criteria must be applied according to complex, often gene-specific rules. Some criteria can be evaluated computationally, while others still require manual expert review."
         }
       ],
@@ -206,6 +208,48 @@ notes: [
         "BRCA1 a BRCA2 jsou znovu vhodný první případ, protože existuje dostatek ručně zkurátorované literatury, proti které lze systém vyvíjet a hodnotit.",
 
         "Dlouhodobě má jít o obecný rámec, který lze rozšířit na další geny podle dostupnosti kvalitních genově specifických pravidel."
+      ]
+    },
+
+    {
+      id: "conclusion",
+      kicker: "Slide 4",
+      title: "Towards more systematic variant interpretation",
+      layout: "standard",
+      left: [
+        {
+          type: "callout",
+          heading: "Current challenge",
+          text: "Variant classification is complex, time-consuming and requires substantial expert knowledge. Relevant evidence and gene-specific rules are not always evaluated consistently in routine practice."
+        },
+        {
+          type: "callout",
+          heading: "ARIANE in laboratory practice",
+          text: "ARIANE is designed as a practical tool for laboratories performing variant classification. It supports the interpretation of individual variants by automatically evaluating applicable criteria, documenting the underlying evidence and guiding the user through the classification process. The development is carried out in collaboration with ENIGMA members Jana Soukupová and Zdeněk Kleibl, ensuring close interaction with the expert community involved in BRCA1/2 variant interpretation."
+        }
+      ],
+      right: [
+        {
+          type: "callout",
+          heading: "Next development step",
+          text: "Extend the framework to evidence contained in scientific literature, while keeping expert review as an integral part of the interpretation process."
+        },
+        {
+          type: "keyValues",
+          heading: "Demo",
+          items: [
+            {
+              key: "Video demonstration",
+              value: "ARIANE - BRCA1/2 Variant Classification",
+              href: "ARIANE%20-%20BRCA1_2%20Variant%20Classification.mp4"
+            }
+          ]
+        }
+      ],
+      notes: [
+        "Závěrečný slide shrnuje prezentaci bez reklamních formulací: problém, praktické využití ARIANE a další vývojový krok.",
+        "U druhého bodu zdůraznit, že ARIANE je zamýšlená jako praktický nástroj přímo pro laboratoře, ne pouze jako technický prototyp.",
+        "Spolupráce s Janou Soukupovou a Zdeňkem Kleiblem je důležitá, protože oba jsou napojeni na ENIGMA komunitu a vývoj tak probíhá v kontaktu s expertní praxí."
       ]
     }
   ]
