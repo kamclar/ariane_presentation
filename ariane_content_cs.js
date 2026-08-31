@@ -240,7 +240,7 @@ window.ARIANE_CONTENTS.cs = {
             {
               key: "Video ukázka",
               value: "ARIANE - klasifikace variant BRCA1/2",
-              href: "ARIANE%20-%20BRCA1_2%20Variant%20Classification.mp4"
+              href: "powerpoint/ARIANE%20-%20BRCA1_2%20Variant%20Classification.mp4"
             }
           ]
         }

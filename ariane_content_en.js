@@ -241,7 +241,7 @@ notes: [
             {
               key: "Video demonstration",
               value: "ARIANE - BRCA1/2 Variant Classification",
-              href: "ARIANE%20-%20BRCA1_2%20Variant%20Classification.mp4"
+              href: "powerpoint/ARIANE%20-%20BRCA1_2%20Variant%20Classification.mp4"
             }
           ]
         }
