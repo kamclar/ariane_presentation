@@ -5,7 +5,7 @@ window.ARIANE_CONTENTS.en = {
     headerTitle: "ARIANE",
     headerSubtitle: "automated interpretation of genetic variants",
     presenterName: "Kamila Clarová",
-    presenterGroup: "Skupina Jiřího Vondráška",
+    presenterGroup: "Jiří Vondrášek Group",
     institution: "ÚOCHB AV ČR",
     logoSrc: "images/uochb-iocb-prague-logo.png",
     logoAlt: "IOCB Prague / ÚOCHB AV ČR",
@@ -64,7 +64,7 @@ window.ARIANE_CONTENTS.en = {
       notes: [
         "Základní problém: genetický test najde variantu, ale samotný nález ještě neříká, zda je klinicky významná.",
         "Co je kritérium: předem definovaný typ důkazu, který posouvá klasifikaci směrem k benigní nebo patogenní variantě.",
-        "U prostřední kategorie zmínit VUS, tedy variantu s nedostatečnými nebo rozpornými důkazy. Není nutné zacházet do kombinatoriky ACMG.",
+        "Lze zmínit VUS, tedy variantu s nedostatečnými nebo rozpornými důkazy. Není nutné zacházet do kombinatoriky ACMG. VUS jsou momentílně velký problém, ať už z důvodu chybné klasifikace, nebo nedostatečných dat. Tady ARIANE může pomoct v obou případech a zmenšit množství VUS.",
         "ENIGMA - mezinárodní expertní panelu, který pravidla zpřesnil pro BRCA1 a BRCA2.",
         "Poslední box je přechod na další slide: část evidence lze zpracovat automaticky a část stále vyžaduje ruční práci."
       ]
@@ -141,7 +141,7 @@ window.ARIANE_CONTENTS.en = {
         }
       ],
       notes: [
-        "Tady zdůraznit, že ARIANE už je funkční aplikace, ne návrh nebo pilot.",
+        "ARIANE už je funkční aplikace ve fázi ladění a testování.",
         "Formulace 'automates parts of variant interpretation' je záměrně přesná. Aplikace automatizuje jen ta kritéria, která lze spolehlivě vyhodnotit z dostupných dat.",
         "BRCA1 a BRCA2 jsou první implementace, ne konečný rozsah projektu. Jsou vhodné pro začátek, protože mají detailně popsaná expertní pravidla a velké množství dostupných dat.",
       ]
@@ -199,10 +199,11 @@ window.ARIANE_CONTENTS.en = {
         }
       ],
       notes: [
-        "Hlavní sdělení: první část projektu už automatizuje pravidla založená na strukturovaných datech. Další fáze míří na evidenci, která se skrývá v publikacích.",
-        "AI není hlavní sdělení projektu. Jazykové modely jsou prostředek pro vyhledání a strukturování evidence, nikoli náhrada odborného rozhodnutí.",
+ "Hlavní sdělení: první část projektu už automatizuje pravidla založená na strukturovaných datech. Další fáze míří na evidenci, která se skrývá v publikacích.",
+        "AI není to nejduležitější, i když je to buzzword. Jazykové modely jsou prostředek pro vyhledání a strukturování evidence, nikoli náhrada odborného rozhodnutí. Tohle je důležité i z etického hlediska",
         "Zdůraznit dohledatelnost: každý vytěžený údaj má zůstat propojený s původním zdrojem a má být předložen expertovi k posouzení.",
         "BRCA1 a BRCA2 jsou znovu vhodný první případ, protože existuje dostatek ručně zkurátorované literatury, proti které lze systém vyvíjet a hodnotit.",
+
         "Dlouhodobě má jít o obecný rámec, který lze rozšířit na další geny podle dostupnosti kvalitních genově specifických pravidel."
       ]
     }
