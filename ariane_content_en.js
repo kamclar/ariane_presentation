@@ -247,8 +247,7 @@ notes: [
         }
       ],
       notes: [
-        "Závěrečný slide shrnuje prezentaci bez reklamních formulací: problém, praktické využití ARIANE a další vývojový krok.",
-        "U druhého bodu zdůraznit, že ARIANE je zamýšlená jako praktický nástroj přímo pro laboratoře, ne pouze jako technický prototyp.",
+        "ARIANE je zamýšlená jako praktický nástroj přímo pro laboratoře, ne pouze jako technický prototyp.",
         "Spolupráce s Janou Soukupovou a Zdeňkem Kleiblem je důležitá, protože oba jsou napojeni na ENIGMA komunitu a vývoj tak probíhá v kontaktu s expertní praxí."
       ]
     }
