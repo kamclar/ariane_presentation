@@ -145,7 +145,6 @@ notes: [
       ],
       notes: [
         "ARIANE už je funkční aplikace ve fázi ladění a testování.",
-        "Formulace 'automates parts of variant interpretation' je záměrně přesná. Aplikace automatizuje jen ta kritéria, která lze spolehlivě vyhodnotit z dostupných dat.",
         "BRCA1 a BRCA2 jsou první implementace, ne konečný rozsah projektu. Jsou vhodné pro začátek, protože mají detailně popsaná expertní pravidla a velké množství dostupných dat.",
       ]
     },
