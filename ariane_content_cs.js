@@ -145,7 +145,7 @@ window.ARIANE_CONTENTS.cs = {
       ],
       notes: [
         "ARIANE už je funkční aplikace ve fázi ladění a testování.",
-        "BRCA1 a BRCA2 jsou první implementace, ne konečný rozsah projektu. Jsou vhodné pro začátek, protože mají detailně popsaná expertní pravidla a velké množství dostupných dat."
+        "BRCA1 a BRCA2 jsou první implementace, další geny budou následovat. Jsou vhodné pro začátek, protože mají detailně popsaná expertní pravidla a velké množství dostupných dat."
       ]
     },
 
