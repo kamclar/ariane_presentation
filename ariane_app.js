@@ -65,6 +65,164 @@
     return mark;
   }
 
+
+  function normalizeBase(item) {
+    return typeof item === "string" ? { base: item, changed: false } : item;
+  }
+
+  function renderBaseStrip(items, extraClass) {
+    const strip = el("div", `dna-base-strip ${extraClass || ""}`.trim());
+    items.map(normalizeBase).forEach(item => {
+      const box = el("span", `dna-base${item.changed ? " changed" : ""}`, item.base);
+      strip.appendChild(box);
+    });
+    return strip;
+  }
+
+  function renderSequenceDiagram(data, cutWord, mutation, changedRegion) {
+    const seq = el("div", "dna-sequence");
+
+    const kept = el("div", "dna-region kept");
+    kept.appendChild(el("div", "dna-region-label", data.keptLabel));
+    kept.appendChild(renderBaseStrip(data.kept, "kept-strip"));
+
+    const cutMarker = el("div", "dna-cut-marker");
+    cutMarker.appendChild(el("div", "dna-cut-line"));
+    cutMarker.appendChild(el("div", "dna-cut-word", cutWord));
+
+    const removed = el("div", "dna-region removed");
+    removed.appendChild(el("div", "dna-region-label", data.cutLabel));
+    removed.appendChild(renderBaseStrip(data.cutOut, "removed-strip"));
+
+    seq.append(kept, cutMarker, removed);
+
+    if (mutation) {
+      const mutationRow = el("div", `dna-mutation ${changedRegion === "cut" ? "under-cut" : "under-kept"}`, mutation);
+      seq.appendChild(mutationRow);
+    }
+
+    return seq;
+  }
+
+  function proteinDots(kind) {
+    const fig = el("div", `protein-figure protein-${kind}`);
+    fig.setAttribute("aria-label", kind === "normal" ? "schematic folded protein" : "schematic altered protein");
+
+    const positions = {
+      normal: [
+        [17,45],[25,26],[41,17],[58,20],[72,32],[76,49],[67,64],[50,72],[33,68],[22,59],[40,45],[56,45]
+      ],
+      substitution: [
+        [18,46],[27,28],[44,20],[61,24],[75,38],[76,57],[62,70],[45,72],[28,64],[40,47],[57,48]
+      ],
+      splice: [
+        [17,49],[26,31],[43,24],[59,29],[70,42],
+        [74,57],[82,67],[78,80]
+      ],
+      truncated: [
+        [20,50],[29,32],[47,26],[63,33],[70,45]
+      ]
+    };
+
+    (positions[kind] || positions.normal).forEach((xy, i) => {
+      const aa = el("span", "aa-dot");
+      aa.style.left = xy[0] + "%";
+      aa.style.top = xy[1] + "%";
+
+      if (kind === "substitution" && i === 3) aa.classList.add("aa-different");
+      if (kind === "splice" && i >= 5) aa.classList.add("aa-wrong");
+      fig.appendChild(aa);
+    });
+
+    if (kind === "splice") {
+      const breakMark = el("span", "protein-break", "×");
+      fig.appendChild(breakMark);
+    }
+
+    if (kind === "truncated") {
+      const stop = el("span", "protein-stop", "STOP");
+      fig.appendChild(stop);
+    }
+
+    return fig;
+  }
+
+  function renderProcessFunnel(steps) {
+    const funnel = el("div", "dna-funnel");
+    steps.forEach((step, index) => {
+      funnel.appendChild(el("div", "dna-process-step", step));
+      if (index < steps.length - 1) funnel.appendChild(el("div", "dna-process-chevron", "▾"));
+    });
+    return funnel;
+  }
+
+  function renderDNAStorySlide(slide, content) {
+    const fragment = document.createDocumentFragment();
+    const section = el("section", "slide dna-story");
+
+    const head = el("div", "head");
+    const titleBlock = el("div", "title-block");
+    titleBlock.appendChild(el("div", "kicker", slide.kicker));
+    titleBlock.appendChild(el("h2", "", slide.title));
+    head.appendChild(titleBlock);
+    head.appendChild(renderDeckMark(content));
+    section.appendChild(head);
+
+    const ref = el("div", "dna-reference");
+    const refSeq = renderSequenceDiagram(
+      {
+        keptLabel: "",
+        cutLabel: "",
+        kept: slide.reference.kept,
+        cutOut: slide.reference.cutOut
+      },
+      slide.reference.cutWord
+    );
+    refSeq.classList.add("reference-sequence");
+    const normalLabel = el("div", "dna-normal-label", slide.reference.label);
+    const normalProtein = proteinDots("normal");
+    const normalText = el("div", "dna-normal-text", slide.reference.proteinText);
+    ref.append(refSeq, normalLabel, normalProtein, normalText);
+    section.appendChild(ref);
+
+    const variants = el("div", "dna-variants");
+    slide.variants.forEach(variant => {
+      const card = el("article", "dna-variant-card");
+
+      const badge = el("div", "dna-number", variant.number);
+      card.appendChild(badge);
+
+      card.appendChild(
+        renderSequenceDiagram(
+          variant,
+          slide.reference.cutWord,
+          variant.mutation,
+          variant.changedRegion
+        )
+      );
+
+      card.appendChild(renderProcessFunnel(slide.process));
+      card.appendChild(proteinDots(variant.protein));
+      card.appendChild(el("div", "dna-result", variant.result));
+      card.appendChild(el("div", "dna-hgvs", variant.hgvs));
+
+      variants.appendChild(card);
+    });
+    section.appendChild(variants);
+
+    section.appendChild(el("div", "dna-takeaway", slide.takeaway));
+    fragment.appendChild(section);
+
+    if (slide.notes && slide.notes.length) {
+      const notes = el("div", "notes");
+      notes.appendChild(el("div", "lab", content.deck.notesLabel || "Presenter notes"));
+      slide.notes.forEach(note => notes.appendChild(el("p", "", note)));
+      fragment.appendChild(notes);
+    }
+
+    return fragment;
+  }
+
   function renderBlock(block) {
     const wrap = el("div");
 
@@ -169,6 +327,29 @@
 
   function renderSlide(slide, content) {
     const fragment = document.createDocumentFragment();
+
+    if (slide.layout === "dna-story") {
+      return renderDNAStorySlide(slide, content);
+    }
+
+    if (slide.layout === "image-only") {
+      const section = el("section", "slide image-only");
+      const img = document.createElement("img");
+      img.src = slide.src;
+      img.alt = slide.alt || slide.title || "";
+      section.appendChild(img);
+      fragment.appendChild(section);
+
+      if (slide.notes && slide.notes.length) {
+        const notes = el("div", "notes");
+        notes.appendChild(el("div", "lab", content.deck.notesLabel || "Presenter notes"));
+        slide.notes.forEach(note => notes.appendChild(el("p", "", note)));
+        fragment.appendChild(notes);
+      }
+
+      return fragment;
+    }
+
     const section = el("section", `slide ${slide.layout || "standard"}`);
 
     const head = el("div", "head");

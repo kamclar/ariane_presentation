@@ -18,9 +18,70 @@ window.ARIANE_CONTENTS.en = {
   },
 
   slides: [
+
+    {
+      id: "dna-consequences",
+      kicker: "Slide 1",
+      title: "One letter three different consequences",
+      layout: "dna-story",
+      reference: {
+        label: "Normally",
+        keptLabel: "Kept",
+        cutLabel: "Cut out",
+        kept: ["A", "T", "C", "G", "C", "A", "G"],
+        cutOut: ["G", "T"],
+        cutWord: "cut",
+        proteinText: "the protein folds correctly and works"
+      },
+      process: [
+        "The text is copied",
+        "Pieces cut and taped",
+        "The protein is built"
+      ],
+      variants: [
+        {
+          number: "1",
+          keptLabel: "Kept",
+          cutLabel: "Cut out",
+          kept: ["A", {base:"G", changed:true}, "C", "G", "C", "A", "G"],
+          cutOut: ["G", "T"],
+          mutation: "T → G",
+          changedRegion: "kept",
+          protein: "substitution",
+          result: "One part is different",
+          hgvs: "BRCA1   c.181T>G"
+        },
+        {
+          number: "2",
+          keptLabel: "Kept",
+          cutLabel: "Cut out",
+          kept: ["A", "T", "C", "G", "C", "A", "G"],
+          cutOut: [{base:"A", changed:true}, "T"],
+          mutation: "G → A",
+          changedRegion: "cut",
+          protein: "splice",
+          result: "Taped in the wrong place",
+          hgvs: "BRCA1   c.212+1G>A"
+        },
+        {
+          number: "3",
+          keptLabel: "Kept",
+          cutLabel: "Cut out",
+          kept: ["A", "T", "C", "G", {base:"T", changed:true}, "A", "G"],
+          cutOut: ["G", "T"],
+          mutation: "C → T",
+          changedRegion: "kept",
+          protein: "truncated",
+          result: "The protein is never finished",
+          hgvs: "BRCA1   c.1687C>T"
+        }
+      ],
+      takeaway: "Finding the change is easy. Deciding what it means is not."
+    },
+
     {
       id: "classification",
-      kicker: "Slide 1",
+      kicker: "Slide 2",
       title: "Classification of genetic variants",
       layout: "standard",
       left: [
@@ -75,7 +136,7 @@ notes: [
 
     {
       id: "ariane",
-      kicker: "Slide 2",
+      kicker: "Slide 3",
       title: "ARIANE",
       layout: "product",
       left: [
@@ -151,7 +212,7 @@ notes: [
 
     {
       id: "literature",
-      kicker: "Slide 3",
+      kicker: "Slide 4",
       title: "Next phase: evidence from scientific literature",
       layout: "literature",
       left: [
@@ -212,7 +273,7 @@ notes: [
 
     {
       id: "conclusion",
-      kicker: "Slide 4",
+      kicker: "Slide 5",
       title: "Towards more systematic variant interpretation",
       layout: "standard",
       left: [

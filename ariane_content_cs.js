@@ -18,9 +18,70 @@ window.ARIANE_CONTENTS.cs = {
   },
 
   slides: [
+
+    {
+      id: "dna-consequences",
+      kicker: "Snímek 1",
+      title: "Jedno písmeno, tři různé důsledky",
+      layout: "dna-story",
+      reference: {
+        label: "Normálně",
+        keptLabel: "Zachováno",
+        cutLabel: "Vystřiženo",
+        kept: ["A", "T", "C", "G", "C", "A", "G"],
+        cutOut: ["G", "T"],
+        cutWord: "střih",
+        proteinText: "protein se složí správně a funguje"
+      },
+      process: [
+        "Text se opíše",
+        "Vystřihne a slepí",
+        "Sestaví se protein"
+      ],
+      variants: [
+        {
+          number: "1",
+          keptLabel: "Zachováno",
+          cutLabel: "Vystřiženo",
+          kept: ["A", {base:"G", changed:true}, "C", "G", "C", "A", "G"],
+          cutOut: ["G", "T"],
+          mutation: "T → G",
+          changedRegion: "kept",
+          protein: "substitution",
+          result: "Jedna část je jiná",
+          hgvs: "BRCA1   c.181T>G"
+        },
+        {
+          number: "2",
+          keptLabel: "Zachováno",
+          cutLabel: "Vystřiženo",
+          kept: ["A", "T", "C", "G", "C", "A", "G"],
+          cutOut: [{base:"A", changed:true}, "T"],
+          mutation: "G → A",
+          changedRegion: "cut",
+          protein: "splice",
+          result: "Slepeno na špatném místě",
+          hgvs: "BRCA1   c.212+1G>A"
+        },
+        {
+          number: "3",
+          keptLabel: "Zachováno",
+          cutLabel: "Vystřiženo",
+          kept: ["A", "T", "C", "G", {base:"T", changed:true}, "A", "G"],
+          cutOut: ["G", "T"],
+          mutation: "C → T",
+          changedRegion: "kept",
+          protein: "truncated",
+          result: "Protein není dokončen",
+          hgvs: "BRCA1   c.1687C>T"
+        }
+      ],
+      takeaway: "Najít změnu je snadné. Rozhodnout, co znamená, už ne."
+    },
+
     {
       id: "classification",
-      kicker: "Snímek 1",
+      kicker: "Snímek 2",
       title: "Klasifikace genetických variant",
       layout: "standard",
       left: [
@@ -75,7 +136,7 @@ window.ARIANE_CONTENTS.cs = {
 
     {
       id: "ariane",
-      kicker: "Snímek 2",
+      kicker: "Snímek 3",
       title: "ARIANE",
       layout: "product",
       left: [
@@ -151,7 +212,7 @@ window.ARIANE_CONTENTS.cs = {
 
     {
       id: "literature",
-      kicker: "Snímek 3",
+      kicker: "Snímek 4",
       title: "Další fáze: evidence z vědecké literatury",
       layout: "literature",
       left: [
@@ -211,7 +272,7 @@ window.ARIANE_CONTENTS.cs = {
 
     {
       id: "conclusion",
-      kicker: "Snímek 4",
+      kicker: "Snímek 5",
       title: "Směrem k systematičtější interpretaci variant",
       layout: "standard",
       left: [
